@@ -1,0 +1,11 @@
+input = "1x2x3"
+areas = []
+ribbon = []
+
+dimensions = input.split("x")
+dimensions = sorted(dimensions)
+print(dimensions)
+ribbon.append(2*int(dimensions[0]) + 2*int(dimensions[1]) + int(dimensions[0])*int(dimensions[1])*int(dimensions[2]))
+
+print(ribbon)
+print("Part 2: " + str(sum(ribbon)))
