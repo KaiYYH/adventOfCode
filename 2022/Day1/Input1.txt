@@ -1,4 +1,4 @@
-const sample = `5800
+5800
 2273
 1315
 5801
@@ -2247,34 +2247,4 @@ const sample = `5800
 5785
 2912
 5664
-2775`
-
-var array = sample.split('\n');
-
-let elf = []; // holds cals of the current elf
-let sums = []; // holds sums of past elves
-let sum = 0; // used in loop for calculating sum of current elf
-for (line of array) {
-    if (line === '') {
-        for (cal of elf) {
-            sum += cal;
-        }
-        sums.push(sum);
-        elf = [];
-        sum = 0;
-    } else {
-        elf.push(Number(line));
-    }
-}
-
-function max(array) {
-    let highestNum = 0;
-    for (num of array) {
-        if(num > highestNum) {
-            highestNum = num;
-        }
-    }
-    return highestNum;
-}
-
-console.log(max(sums));
+2775
