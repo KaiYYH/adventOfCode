@@ -1,0 +1,1 @@
+input = open("Dec7_Input.txt", "r")
