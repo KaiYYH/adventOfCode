@@ -57,42 +57,46 @@ while currentX in range(len(grid)) and currentY in range(len(line)): # loop for 
             OX = currentX
             OY = currentY - 1
 
-    holdingCharacter = grid[OX][OY]
+    holdingCharacter = grid[OX][OY] # holds character and replaces it with #
     grid[OX][OY] = "#"
+    """ if progress == 3:
+        print("\n")
+        for check in grid: 
+            print(check) """
     
-    print(holdingCharacter)
     originalX = currentX # temporary original variables
     originalY = currentY
     originalCursor = cursor
 
     obstacleLogged = False
+    looped = 0
+    path = []
 
     while originalX in range(len(grid)) and originalY in range(len(line)) and obstacleLogged == False: # loop for going through the grid with the obstacle
         originalCursor, originalX, originalY = next_move(originalCursor, originalX, originalY)
-        print("Original: " + str(originalX) + ", " + str(originalY))
 
-        temporaryX = originalX # temporary variables
-        temporaryY = originalY
-        temporaryCursor = originalCursor
-
-        temporaryCursor, temporaryX, temporaryY = next_move(temporaryCursor, temporaryX, temporaryY) # first move so that original and temporary aren't equal for while loop
-        """ print("Original: (" + str(originalX) + ", " + str(originalY) + "), Temporary: (" + str(temporaryX) + ", " + str(temporaryY) + ")") """
-
-        while temporaryX in range(len(grid)) and temporaryY in range(len(line)) and (temporaryX != originalX or temporaryY != originalY): # loop for checking if it has completed a loop
-            temporaryCursor, temporaryX, temporaryY = next_move(temporaryCursor, temporaryX, temporaryY)
-            """ print("Temporary: " + str(temporaryX) + ", " + str(temporaryY)) """
-        
-        if temporaryX == originalX and temporaryY == originalY:
+        if [originalX, originalY, originalCursor] in path: 
             obstacles.append([OX, OY])
             print("Obstacle: " + str(OX) + ", " + str(OY))
             obstacleLogged = True
+        else: 
+            path.append([originalX, originalY, originalCursor])
 
     grid[OX][OY] = holdingCharacter # removes the obstacle for the next loop
 
     progress += 1
-    print("I've made it through another loop! This is loop: " + str(progress))
+    print("I've made it through another loop! This is loop: " + str(progress)) # expect 6093
 
-print(obstacles)
-count = len(obstacles)
+print(obstacles) # counting obstacles
+
+unique_obstacles = []
+
+for obstacle in obstacles: 
+    if obstacle not in unique_obstacles:
+        unique_obstacles.append(obstacle)
+
+count = len(unique_obstacles)
 print("# of obstacles: " + str(count))
-print(grid)
+
+# 2422 is too high
+# 2249 is too high
