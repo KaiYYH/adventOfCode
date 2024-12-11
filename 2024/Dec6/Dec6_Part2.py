@@ -59,26 +59,20 @@ while currentX in range(len(grid)) and currentY in range(len(line)): # loop for 
 
     holdingCharacter = grid[OX][OY] # holds character and replaces it with #
     grid[OX][OY] = "#"
-    """ if progress == 3:
-        print("\n")
-        for check in grid: 
-            print(check) """
     
     originalX = currentX # temporary original variables
     originalY = currentY
     originalCursor = cursor
 
-    obstacleLogged = False
     looped = 0
     path = []
 
-    while originalX in range(len(grid)) and originalY in range(len(line)) and obstacleLogged == False: # loop for going through the grid with the obstacle
+    while originalX in range(len(grid)) and originalY in range(len(line)) and [OX, OY] not in obstacles: # loop for going through the grid with the obstacle
         originalCursor, originalX, originalY = next_move(originalCursor, originalX, originalY)
 
         if [originalX, originalY, originalCursor] in path: 
             obstacles.append([OX, OY])
             print("Obstacle: " + str(OX) + ", " + str(OY))
-            obstacleLogged = True
         else: 
             path.append([originalX, originalY, originalCursor])
 
@@ -89,14 +83,9 @@ while currentX in range(len(grid)) and currentY in range(len(line)): # loop for 
 
 print(obstacles) # counting obstacles
 
-unique_obstacles = []
+count = len(obstacles) 
 
-for obstacle in obstacles: 
-    if obstacle not in unique_obstacles:
-        unique_obstacles.append(obstacle)
-
-count = len(unique_obstacles)
-print("# of obstacles: " + str(count))
+print("# of unique obstacles: " + str(count))
 
 # 2422 is too high
 # 2249 is too high
