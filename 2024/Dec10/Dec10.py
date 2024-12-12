@@ -4,6 +4,7 @@ input = open("Dec10_Input.txt", "r")
 tmap = []
 zeros = []
 count = 0
+count2 = 0
 
 for i in input: 
     tmap.append(list(map(int, list(i.replace("\n", "")))))
@@ -35,6 +36,8 @@ for zero in zeros:
         for trail in trails[h]: 
             trails = next_number(trail, h)
 
+    count2 += len(trails[9])
+
     trailheads = []
     for trailhead in trails[9]: 
         if trailhead not in trailheads: 
@@ -42,4 +45,5 @@ for zero in zeros:
     
     count += len(trailheads)
 
-print(count)
+print("Part 1: " + str(count))
+print("Part 2: " + str(count2))
