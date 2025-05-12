@@ -3,7 +3,7 @@ def file_input(file): # Read file and return array
     data = []
 
     for i in input: 
-        data.append(int(i.strip("\n")))
+        data.append(i.strip("\n"))
 
     return data
 
