@@ -1,5 +1,4 @@
-input = open("Dec3Input.txt", "r")
-Part1 = 0
+input, Part1 = open("Dec3Input.txt", "r"), 0
 
 def highest(num):
     largest = 0

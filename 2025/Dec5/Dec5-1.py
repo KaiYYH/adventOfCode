@@ -1,6 +1,5 @@
 import re
-input = open("Dec5Input.txt", "r")
-ranges, ingredients, Part1 = [], [], 0
+input, ranges, ingredients, Part1 = open("Dec5Input.txt", "r"), [], [], 0
 
 for i in input: 
     if "-" in i: 

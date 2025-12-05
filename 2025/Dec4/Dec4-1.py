@@ -1,5 +1,4 @@
-input = open("Dec4Input.txt", "r")
-grid, adjacent, Part1 = [], [[0, 1], [0, -1], [1, 1], [1, 0], [1, -1], [-1, 1], [-1, 0], [-1, -1]], 0
+input, grid, adjacent, Part1 = open("Dec4Input.txt", "r"), [], [[0, 1], [0, -1], [1, 1], [1, 0], [1, -1], [-1, 1], [-1, 0], [-1, -1]], 0
 
 def adjacent_roll(grid, x, y): 
     return x in range(len(grid)) and y in range(len(grid[x])) and grid[x][y] == "@"

@@ -1,6 +1,5 @@
 import re
-input = open("Dec2Input.txt", "r")
-Part1 = 0
+input, Part1 = open("Dec2Input.txt", "r"), 0
 
 for i in input: 
     ids = re.findall(r'(\d+)-(\d+)', i)

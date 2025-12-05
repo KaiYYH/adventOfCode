@@ -1,5 +1,4 @@
-input = open("Dec1Input.txt", "r")
-dial, Part2 = 50, 0
+input, dial, Part2 = open("Dec1Input.txt", "r"), 50, 0
 
 for i in input:
     for click in range(int(i[1:])):

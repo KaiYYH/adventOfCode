@@ -1,6 +1,5 @@
 import re
-input = open("Dec5Input.txt", "r")
-ranges, fresh, Part2 = [], [], 0
+input, ranges, fresh, Part2 = open("Dec5Input.txt", "r"), [], [], 0
 
 for i in input: 
     if "-" in i: ranges.append([int(n) for n in re.findall(r'\d+', i)])

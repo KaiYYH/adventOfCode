@@ -1,5 +1,4 @@
-input = open("Dec3Input.txt", "r")
-Part2 = 0
+input, Part2 = open("Dec3Input.txt", "r"), 0
 
 for i in input: 
     joltage = i.replace('\n', '')
