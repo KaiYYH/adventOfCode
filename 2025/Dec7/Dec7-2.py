@@ -4,8 +4,7 @@ for i in input:
     diagram.append(i.replace("\n", ""))
 
 for character in diagram[0]: 
-    if character == "S": current.append(1)
-    else: current.append(0)
+    current.append(1) if character == "S" else current.append(0)
 
 for row in diagram: 
     for character in range(len(row)): 
